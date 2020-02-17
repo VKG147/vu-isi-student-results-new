@@ -3,6 +3,8 @@
 #include <vector>
 #include <iomanip>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 
 using std::string; using std::vector;
 
@@ -26,6 +28,8 @@ void printStudents(const vector<Student> students, bool isMedian);
 
 int main()
 {
+	srand(time(0)); rand();
+	
 	vector<Student> students;
 	bool isMedian;
 	
@@ -55,23 +59,52 @@ void getInput(vector<Student>& students, bool& isMedian)
 		std::cout << "Studento pavarde: ";
 		std::cin >> student.surname;
 
-		std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
-
+		char input = ' ';
+		
 		do
 		{
-			int grade = 0;
-			std::cout << "Iveskite pazymi: ";
-			std::cin >> grade;
-			if (std::cin)
+			if (!std::cin || (input != 't' && input != 'n' && input != 'T' && input != 'N'))
 			{
-				student.hwGrades.push_back(grade);
+				std::cin.clear();
+				std::cin.ignore(INT_MAX, '\n');
 			}
-		} while (std::cin || student.hwGrades.size() == 0);
-		std::cin.clear(); std::cin.ignore();
 
-		handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
-		std::cout << std::endl;
-		
+			std::cout << "Parinkti atsitiktinius pazymius? (t/n)\n";
+			std::cin >> input;
+		} while (!std::cin || (input != 't' && input != 'n' && input != 'T' && input != 'N'));
+
+		if (input == 't' || input == 'T')
+		{
+			int N;
+			handleInput("Iveskite pazymiu skaiciu: ", N);
+
+			for (int j = 0; j < N; ++j)
+			{
+				int r_grade = ceil(1.0*rand() / RAND_MAX * 10);
+				student.hwGrades.push_back(r_grade);
+			}
+			student.examGrade = ceil(1.0 * rand() / RAND_MAX * 10);
+		}
+		else
+		{
+			std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
+
+			do
+			{
+				int grade = 0;
+				std::cout << "Iveskite pazymi: ";
+				std::cin >> grade;
+				if (std::cin)
+				{
+					student.hwGrades.push_back(grade);
+				}
+			} while (std::cin || student.hwGrades.size() == 0);
+			std::cin.clear(); std::cin.ignore();
+
+			handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
+			std::cout << std::endl;
+		}
+
 		students.push_back(student);
 	}
 
