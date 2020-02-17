@@ -42,3 +42,4 @@
 *.log
 *.sln
 *.vcxproj*
+*.vs
