@@ -49,21 +49,25 @@ void getInput(vector<Student>& students, bool& isMedian)
 	for (int i = 0; i < S; ++i)
 	{
 		Student student;
-		int N = 0;
 
 		std::cout << "Studento vardas: ";
 		std::cin >> student.name;
 		std::cout << "Studento pavarde: ";
 		std::cin >> student.surname;
 
-		handleInput("Pazymiu skaicius: ", N);
+		std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
 
-		for (int j = 0; j < N; ++j)
+		do
 		{
 			int grade = 0;
-			handleInput("Iveskite pazymi: ", grade, true);
-			student.hwGrades.push_back(grade);
-		}
+			std::cout << "Iveskite pazymi: ";
+			std::cin >> grade;
+			if (std::cin)
+			{
+				student.hwGrades.push_back(grade);
+			}
+		} while (std::cin || student.hwGrades.size() == 0);
+		std::cin.clear(); std::cin.ignore();
 
 		handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
 		std::cout << std::endl;
