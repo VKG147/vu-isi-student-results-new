@@ -15,28 +15,30 @@ struct Student
 	float final;
 };
 
+void getInput(vector<Student>& students, bool& isMedian);
 void handleInput(string prompt_text, int& input, bool isGrade = false);
 
-void getInput(vector<Student>& students);
-void computeFinals(vector<Student>& students);
-void printStudents(const vector<Student> students);
+void computeFinals(vector<Student>& students, bool isMedian);
+float getMedian(vector<int> v);
+float getAvg(vector<int> v);
+
+void printStudents(const vector<Student> students, bool isMedian);
 
 int main()
 {
-	setlocale(LC_ALL, "Lithuanian");
-	
 	vector<Student> students;
+	bool isMedian;
+	
+	getInput(students, isMedian);
 
-	getInput(students);
+	computeFinals(students, isMedian);
 
-	computeFinals(students);
-
-	printStudents(students);
+	printStudents(students, isMedian);
 	
 	return 0;
 }
 
-void getInput(vector<Student>& students)
+void getInput(vector<Student>& students, bool& isMedian)
 {
 	students.clear();
 	
@@ -68,24 +70,78 @@ void getInput(vector<Student>& students)
 		
 		students.push_back(student);
 	}
+
+	char input = ' ';
+	do
+	{
+		if (!std::cin || (input != 't' && input != 'n' && input != 'T' && input != 'N'))
+		{
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+		}
+		
+		std::cout << "Vidurkius skaiciuoti pagal mediana? (t/n)\n";
+		std::cin >> input;
+	} while (!std::cin || (input != 't' && input != 'n' && input != 'T' && input != 'N'));
+
+	if (input == 't' || input == 'T')
+		isMedian = true;
+	else
+		isMedian = false;
 }
 
-void computeFinals(vector<Student>& students)
+void handleInput(string prompt_text, int& input, bool isGrade)
+{
+	input = 5;
+
+	do
+	{
+		if (!std::cin || input <= 0 || (isGrade && (input < 1 || input > 10)))
+		{
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+		}
+
+		std::cout << prompt_text;
+		std::cin >> input;
+	} while (!std::cin || input <= 0 || (isGrade && (input < 1 || input > 10)));
+}
+
+
+void computeFinals(vector<Student>& students, bool isMedian)
 {
 	for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
 	{
-		float avg = 0;
-		
-		for (auto it_g = it_s->hwGrades.begin(); it_g != it_s->hwGrades.end(); ++it_g)
-			avg += *it_g;
-
-		avg /= it_s->hwGrades.size();
-
-		it_s->final = 0.4*avg + 0.6*it_s->examGrade;
+		if (isMedian)
+			it_s->final = 0.4 * getMedian(it_s->hwGrades) + 0.6 * it_s->examGrade;
+		else
+			it_s->final = 0.4 * getAvg(it_s->hwGrades) + 0.6 * it_s->examGrade;
 	}
 }
 
-void printStudents(const vector<Student> students)
+float getMedian(vector<int> v)
+{
+	std::sort(v.begin(), v.end());
+	if (v.size() % 2 == 1)
+		return 1.0 * v.at(v.size() / 2);
+	else
+		return 1.0 * (v.at(v.size() / 2 - 1) + v.at(v.size() / 2)) / 2;
+}
+
+float getAvg(vector<int> v)
+{
+	float avg = 0;
+
+	for (auto it = v.begin(); it != v.end(); ++it)
+		avg += *it;
+
+	avg /= v.size();
+
+	return avg;
+}
+
+
+void printStudents(const vector<Student> students, bool isMedian)
 {
 	size_t len_name = 0, len_surname = 0;
 	for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
@@ -97,8 +153,7 @@ void printStudents(const vector<Student> students)
 	std::cout
 		<< std::setw(len_surname + 2) << std::left << "Pavarde"
 		<< std::setw(len_name + 2) << std::left << "Vardas"
-		<< std::setw(12) << std::left << "Galutinis (Vid.)"
-	<< std::endl;
+		<< std::setw(12) << std::left << (isMedian ? "Galutinis (Med.)" : "Galutinis (Vid.)") << std::endl;
 	
 	for (int i = 0; i < (len_name + 2) + (len_surname + 2) + 12; ++i)
 		std::cout << "-";
@@ -114,19 +169,5 @@ void printStudents(const vector<Student> students)
 	}
 }
 
-void handleInput(string prompt_text, int& input, bool isGrade)
-{
-	input = 5;
-	
-	do
-	{
-		if (!std::cin || input <= 0 || (isGrade && (input < 1 || input > 10)))
-		{
-			std::cin.clear();
-			std::cin.ignore(INT_MAX, '\n');
-		}
 
-		std::cout << prompt_text;
-		std::cin >> input;
-	} while (!std::cin || input <= 0 || (isGrade && (input < 1 || input > 10)));
-}
+
