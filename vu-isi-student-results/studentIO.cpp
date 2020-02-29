@@ -6,7 +6,6 @@
 #include <fstream>
 #include <algorithm>
 
-
 void getInput(vector<Student>& students)
 {
 	students.clear();
@@ -157,9 +156,12 @@ void printStudents(const vector<Student> students)
 		len_surname = std::max(len_surname, it_s->surname.length());
 	}
 
+	len_name = std::max((int)len_name, 7);
+	len_surname = std::max((int)len_surname, 8);
+
 	std::cout
-		<< std::setw(len_surname + 2) << std::left << "Pavarde"
-		<< std::setw(len_name + 2) << std::left << "Vardas"
+		<< std::setw(len_name + 2) << std::left << "Vardas "
+		<< std::setw(len_surname + 2) << std::left << "Pavarde "
 		<< "Galutinis (Vid.) Galutinis (Med.)" << std::endl;
 
 	for (int i = 0; i < (len_name + 2) + (len_surname + 2) + 12 + 17 + 17; ++i)
@@ -169,8 +171,8 @@ void printStudents(const vector<Student> students)
 	for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
 	{
 		std::cout
-			<< std::setw(len_surname + 2) << std::left << it_s->surname
 			<< std::setw(len_name + 2) << std::left << it_s->name
+			<< std::setw(len_surname + 2) << std::left << it_s->surname
 			<< std::setw(17) << std::left << std::fixed << std::setprecision(2) << it_s->finalAvg
 			<< std::setw(17) << std::left << std::fixed << std::setprecision(2) << it_s->finalMed
 			<< std::endl;

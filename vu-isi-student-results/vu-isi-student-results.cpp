@@ -4,8 +4,14 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
 using std::string; using std::vector;
+
+bool compare(const Student a, const Student b)
+{
+	return (a.name < b.name);
+}
 
 int main()
 {
@@ -17,6 +23,8 @@ int main()
 
 	computeFinals(students);
 
+	sort(students.begin(), students.end(), compare);
+	
 	printStudents(students);
 
 	return 0;
