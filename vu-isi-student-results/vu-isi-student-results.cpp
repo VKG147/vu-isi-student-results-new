@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 using std::string; using std::vector;
 
@@ -19,7 +20,7 @@ struct Student
 };
 
 void getInput(vector<Student>& students);
-void getInputFromFile();
+int getInputFromFile(vector<Student>& students, string path);
 
 void handleInput(string prompt_text, int& input, bool isGrade = false);
 bool promptChoice(string prompt_text);
@@ -49,55 +50,103 @@ void getInput(vector<Student>& students)
 {
 	students.clear();
 
-	int S = 0;
+	bool readFromFile = promptChoice("Skaityti duomenis is failo? (t/n)\n");
 
-	handleInput("Iveskite studentu skaiciu: ", S);
-
-	for (int i = 0; i < S; ++i)
+	if (readFromFile)
 	{
-		Student student;
-
-		std::cout << "Studento vardas: ";
-		std::cin >> student.name;
-		std::cout << "Studento pavarde: ";
-		std::cin >> student.surname;
-
-		bool randomGrades = promptChoice("Pasirinkti atsitiktinius pazymius? (t/n)\n");
-
-		if (randomGrades)
-		{
-			int N;
-			handleInput("Iveskite pazymiu skaiciu: ", N);
-
-			for (int j = 0; j < N; ++j)
-			{
-				int r_grade = ceil(1.0 * rand() / RAND_MAX * 10);
-				student.hwGrades.push_back(r_grade);
-			}
-			student.examGrade = ceil(1.0 * rand() / RAND_MAX * 10);
-		}
-		else
-		{
-			std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
-
-			do
-			{
-				int grade = 0;
-				std::cout << "Iveskite pazymi: ";
-				std::cin >> grade;
-				if (std::cin)
-				{
-					student.hwGrades.push_back(grade);
-				}
-			} while (std::cin || student.hwGrades.size() == 0);
-			std::cin.clear(); std::cin.ignore();
-
-			handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
-			std::cout << std::endl;
-		}
-
-		students.push_back(student);
+		getInputFromFile(students, "kursiokai.txt");
 	}
+	else
+	{
+		int S = 0;
+		
+		handleInput("Iveskite studentu skaiciu: ", S);
+
+		for (int i = 0; i < S; ++i)
+		{
+			Student student;
+
+			std::cout << "Studento vardas: ";
+			std::cin >> student.name;
+			std::cout << "Studento pavarde: ";
+			std::cin >> student.surname;
+
+			bool randomGrades = promptChoice("Pasirinkti atsitiktinius pazymius? (t/n)\n");
+
+			if (randomGrades)
+			{
+				int N;
+				handleInput("Iveskite pazymiu skaiciu: ", N);
+
+				for (int j = 0; j < N; ++j)
+				{
+					int r_grade = ceil(1.0 * rand() / RAND_MAX * 10);
+					student.hwGrades.push_back(r_grade);
+				}
+				student.examGrade = ceil(1.0 * rand() / RAND_MAX * 10);
+			}
+			else
+			{
+				std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
+
+				do
+				{
+					int grade = 0;
+					std::cout << "Iveskite pazymi: ";
+					std::cin >> grade;
+					if (std::cin)
+					{
+						student.hwGrades.push_back(grade);
+					}
+				} while (std::cin || student.hwGrades.size() == 0);
+				std::cin.clear(); std::cin.ignore();
+
+				handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
+				std::cout << std::endl;
+			}
+
+			students.push_back(student);
+		}
+	}
+}
+
+int getInputFromFile(vector<Student>& students, string path)
+{
+	std::ifstream in(path);
+
+	if (!in.is_open())
+	{
+		std::cout << "Duomenu failas neegzistuoja arba jo atidaryti nepavyko" << std::endl;
+		return 0;
+	}
+
+	try
+	{
+		while (!in.eof())
+		{
+			Student student;
+
+			in >> student.name >> student.surname;
+
+			for (int i = 0; i < 5; ++i)
+			{
+				int grade;
+				in >> grade;
+
+				student.hwGrades.push_back(grade);
+			}
+
+			in >> student.examGrade;
+			
+			students.push_back(student);
+		}
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Ivyko duomenu failo skaitymo klaida" << std::endl;
+	}
+	
+	return 1;
 }
 
 void handleInput(string prompt_text, int& input, bool isGrade)
@@ -119,7 +168,7 @@ void handleInput(string prompt_text, int& input, bool isGrade)
 
 bool promptChoice(string prompt_text)
 {
-	char input = ' ';
+	char input = 'T';
 
 	do
 	{
@@ -137,6 +186,7 @@ bool promptChoice(string prompt_text)
 		return true;
 	return false;
 }
+
 
 void computeFinals(vector<Student>& students)
 {
