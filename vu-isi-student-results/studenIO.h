@@ -1,3 +1,4 @@
+#include "randomGenerator.h";
 #include <vector>
 #include <string>
 
@@ -16,8 +17,10 @@ struct Student
 	float finalMed;
 };
 
-void getInput(vector<Student>& students);
+void getInput(vector<Student>& students, RandomGenerator* generator);
 int getInputFromFile(vector<Student>& students, string path);
+int writeToFile(const vector<Student> students, string path);
+
 void handleInput(string prompt_text, int& input, bool isGrade = false);
 bool promptChoice(string prompt_text);
 void printStudents(const vector<Student> students);

@@ -11,4 +11,6 @@ void computeFinals(vector<Student>& students);
 float getMedian(vector<int> v);
 float getAvg(vector<int> v);
 
+void genRandomStudents(vector<Student>& students, int n);
+
 #endif

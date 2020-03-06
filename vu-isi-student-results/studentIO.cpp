@@ -6,7 +6,7 @@
 #include <fstream>
 #include <algorithm>
 
-void getInput(vector<Student>& students)
+void getInput(vector<Student>& students, RandomGenerator* generator)
 {
 	students.clear();
 
@@ -40,7 +40,7 @@ void getInput(vector<Student>& students)
 
 				for (int j = 0; j < N; ++j)
 				{
-					int r_grade = ceil(1.0 * rand() / RAND_MAX * 10);
+					int r_grade = generator->getRandom(1, 10);
 					student.hwGrades.push_back(r_grade);
 				}
 				student.examGrade = ceil(1.0 * rand() / RAND_MAX * 10);
@@ -104,6 +104,35 @@ int getInputFromFile(vector<Student>& students, string path)
 	catch (std::exception & e)
 	{
 		std::cout << "Ivyko duomenu failo skaitymo klaida" << std::endl;
+	}
+
+	return 1;
+}
+
+int writeToFile(const vector<Student> students, string path)
+{
+	std::ofstream out(path);
+
+	if (!out.is_open())
+	{
+		std::cout << "Nepavyko atidaryti failo" << std::endl;
+		return 0;
+	}
+
+	try
+	{
+		for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
+		{
+			out << it_s->name << " " << it_s->surname;
+			for (auto it_g = it_s->hwGrades.begin(); it_g != it_s->hwGrades.end(); ++it_g)
+				out << " " << *it_g;
+			out << it_s->examGrade << std::endl;
+		}
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Ivyko rasymo i faila klaida" << std::endl;
+		return 0;
 	}
 
 	return 1;

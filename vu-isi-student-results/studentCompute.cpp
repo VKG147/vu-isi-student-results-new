@@ -30,3 +30,9 @@ float getAvg(vector<int> v)
 
 	return avg;
 }
+
+void genRandomStudents(vector<Student>& students, int n, RandomGenerator* generator)
+{
+	string name = "Vardas";
+	string surname = "Pavarde";
+}

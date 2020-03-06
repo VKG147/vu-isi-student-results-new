@@ -2,11 +2,12 @@
 #include "studentCompute.h"
 #include <string>
 #include <vector>
-#include <cstdlib>
-#include <ctime>
 #include <algorithm>
+#include "randomGenerator.h"
 
 using std::string; using std::vector;
+
+RandomGenerator* generator;
 
 bool compare(const Student a, const Student b)
 {
@@ -15,8 +16,8 @@ bool compare(const Student a, const Student b)
 
 int main()
 {
-	srand(time(0)); rand();
-
+	generator = new RandomGenerator();
+	
 	vector<Student> students;
 
 	getInput(students);
@@ -27,5 +28,6 @@ int main()
 	
 	printStudents(students);
 
+	delete generator;
 	return 0;
 }
