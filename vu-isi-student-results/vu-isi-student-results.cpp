@@ -1,9 +1,9 @@
 ﻿#include "studenIO.h"
 #include "studentCompute.h"
+#include "randomGenerator.h"
 #include <string>
 #include <vector>
-#include <algorithm>
-#include "randomGenerator.h"
+#include <fstream>
 
 using std::string; using std::vector;
 
@@ -18,18 +18,15 @@ int main()
 {
 	generator = new RandomGenerator();
 	
-	vector<Student> students;
-
-	genRandomStudents(students, 100, 5, generator);
-	writeStudentsToFile(students, "test2.txt");
+	vector<Student> students;	
 	
-	/*getInput(students, generator);
+	getInput(students, generator);
 
 	computeFinals(students);
 
 	sort(students.begin(), students.end(), compare);
 	
-	printStudents(students);*/
+	printStudents(students);
 
 	delete generator;
 	return 0;

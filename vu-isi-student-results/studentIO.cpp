@@ -106,13 +106,19 @@ int getInputFromFile(vector<Student>& students, string path)
 		std::cout << "Ivyko duomenu failo skaitymo klaida" << std::endl;
 	}
 
+	in.close();
 	return 1;
 }
 
-int writeStudentsToFile(const vector<Student> students, string path)
+int writeStudentsToFile(const vector<Student> students, string path, bool append)
 {
-	std::ofstream out(path);
-
+	std::ofstream out;
+	
+	if (append)
+		out = std::ofstream(path, std::ios_base::app);
+	else
+		out = std::ofstream(path);
+	
 	if (!out.is_open())
 	{
 		std::cout << "Nepavyko atidaryti failo" << std::endl;
@@ -135,6 +141,7 @@ int writeStudentsToFile(const vector<Student> students, string path)
 		return 0;
 	}
 
+	out.close();
 	return 1;
 }
 
