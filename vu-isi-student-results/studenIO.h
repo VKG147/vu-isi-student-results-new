@@ -19,7 +19,7 @@ struct Student
 
 void getInput(vector<Student>& students, RandomGenerator* generator);
 int getInputFromFile(vector<Student>& students, string path);
-int writeToFile(const vector<Student> students, string path);
+int writeStudentsToFile(const vector<Student> students, string path);
 
 void handleInput(string prompt_text, int& input, bool isGrade = false);
 bool promptChoice(string prompt_text);

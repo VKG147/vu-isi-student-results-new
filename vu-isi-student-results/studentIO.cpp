@@ -109,7 +109,7 @@ int getInputFromFile(vector<Student>& students, string path)
 	return 1;
 }
 
-int writeToFile(const vector<Student> students, string path)
+int writeStudentsToFile(const vector<Student> students, string path)
 {
 	std::ofstream out(path);
 
@@ -125,8 +125,8 @@ int writeToFile(const vector<Student> students, string path)
 		{
 			out << it_s->name << " " << it_s->surname;
 			for (auto it_g = it_s->hwGrades.begin(); it_g != it_s->hwGrades.end(); ++it_g)
-				out << " " << *it_g;
-			out << it_s->examGrade << std::endl;
+				out << " " << *it_g;		
+			out << " " << it_s->examGrade << std::endl;
 		}
 	}
 	catch (std::exception& e)

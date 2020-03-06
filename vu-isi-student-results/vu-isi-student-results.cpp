@@ -20,13 +20,16 @@ int main()
 	
 	vector<Student> students;
 
-	getInput(students);
+	genRandomStudents(students, 100, 5, generator);
+	writeStudentsToFile(students, "test2.txt");
+	
+	/*getInput(students, generator);
 
 	computeFinals(students);
 
 	sort(students.begin(), students.end(), compare);
 	
-	printStudents(students);
+	printStudents(students);*/
 
 	delete generator;
 	return 0;

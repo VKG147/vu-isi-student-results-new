@@ -1,5 +1,7 @@
 #include "studentCompute.h"
 #include <algorithm>
+#include <string>
+#include <iostream>
 
 void computeFinals(vector<Student>& students)
 {
@@ -31,8 +33,30 @@ float getAvg(vector<int> v)
 	return avg;
 }
 
-void genRandomStudents(vector<Student>& students, int n, RandomGenerator* generator)
+void genRandomStudents(vector<Student>& students, int student_count, int grade_count, RandomGenerator* generator)
 {
-	string name = "Vardas";
-	string surname = "Pavarde";
+	students.clear();
+	
+	string dName = "Vardas";
+	string dSurname = "Pavarde";
+
+	for (int i = 0; i < student_count; ++i)
+	{
+		string suffix = std::to_string(i+1);
+		
+		Student student;
+		student.name = dName + suffix;
+		student.surname = dSurname + suffix;
+
+		for (int j = 0; j < grade_count; ++j)
+		{
+			int r_grade = generator->getRandom(1, 10);
+			student.hwGrades.push_back(r_grade);
+		}
+
+		int exam_grade = generator->getRandom(1, 10);
+		student.examGrade = exam_grade;
+
+		students.push_back(student);
+	}
 }
