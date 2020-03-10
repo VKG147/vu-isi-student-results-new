@@ -17,7 +17,7 @@ float getMedian(vector<int> v)
 	if (v.size() % 2 == 1)
 		return 1.0 * v.at(v.size() / 2);
 	else
-		return 1.0 * (v.at(v.size() / 2 - 1) + v.at(v.size() / 2)) / 2;
+		return 1.0 * (v.at((int)(v.size() / 2) - 1) + v.at((int)(v.size() / 2))) / 2;
 }
 
 float getAvg(vector<int> v)
