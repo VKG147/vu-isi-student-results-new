@@ -214,5 +214,3 @@ void printStudents(const vector<Student> students)
 			<< std::endl;
 	}
 }
-
-
