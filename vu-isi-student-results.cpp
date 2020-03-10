@@ -1,9 +1,11 @@
-﻿#include "studenIO.h"
+﻿#include "studentIO.h"
 #include "studentCompute.h"
 #include "randomGenerator.h"
 #include <string>
 #include <vector>
 #include <fstream>
+#include <chrono>
+#include <iostream>
 
 using std::string; using std::vector;
 
@@ -32,14 +34,21 @@ int main()
 	generator = new RandomGenerator();
 	
 	vector<Student> students;	
-	
-	getInput(students, generator);
+
+	runTests();
+
+	/*bool readFromFile = promptChoice("Skaityti duomenis is failo (kursiokai.txt)? (t/n)\n");
+
+	if (readFromFile)
+		getInputFromFile(students, "kursiokai.txt");
+	else
+		getInput(students, generator);
 
 	computeFinals(students);
 
 	sort(students.begin(), students.end(), compareByName);
 	
-	printStudents(students);
+	printStudents(students);*/
 
 	delete generator;
 	return 0;
@@ -63,10 +72,10 @@ void runTests()
 		vector<Student> studentsA, studentsB;
 		for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
 		{
-			if ()
+			/*if ()
 			{
 				
-			}
+			}*/
 		}
 		
 		// Writing to file1

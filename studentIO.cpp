@@ -1,77 +1,71 @@
-#include "studenIO.h"
+#include "studentIO.h"
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <sstream>
 
 void getInput(vector<Student>& students, RandomGenerator* generator)
 {
 	students.clear();
 
-	bool readFromFile = promptChoice("Skaityti duomenis is failo (kursiokai.txt)? (t/n)\n");
+	int S = 0;
 
-	if (readFromFile)
+	handleInput("Iveskite studentu skaiciu: ", S);
+
+	for (int i = 0; i < S; ++i)
 	{
-		getInputFromFile(students, "kursiokai.txt");
-	}
-	else
-	{
-		int S = 0;
+		Student student;
 
-		handleInput("Iveskite studentu skaiciu: ", S);
+		std::cout << "Studento vardas: ";
+		std::cin >> student.name;
+		std::cout << "Studento pavarde: ";
+		std::cin >> student.surname;
 
-		for (int i = 0; i < S; ++i)
+		bool randomGrades = promptChoice("Pasirinkti atsitiktinius pazymius? (t/n)\n");
+
+		if (randomGrades)
 		{
-			Student student;
+			int N;
+			handleInput("Iveskite pazymiu skaiciu: ", N);
 
-			std::cout << "Studento vardas: ";
-			std::cin >> student.name;
-			std::cout << "Studento pavarde: ";
-			std::cin >> student.surname;
-
-			bool randomGrades = promptChoice("Pasirinkti atsitiktinius pazymius? (t/n)\n");
-
-			if (randomGrades)
+			for (int j = 0; j < N; ++j)
 			{
-				int N;
-				handleInput("Iveskite pazymiu skaiciu: ", N);
-
-				for (int j = 0; j < N; ++j)
-				{
-					int r_grade = generator->getRandom(1, 10);
-					student.hwGrades.push_back(r_grade);
-				}
-				student.examGrade = ceil(1.0 * rand() / RAND_MAX * 10);
+				int r_grade = generator->getRandom(1, 10);
+				student.hwGrades.push_back(r_grade);
 			}
-			else
-			{
-				std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
-
-				do
-				{
-					int grade = 0;
-					std::cout << "Iveskite pazymi: ";
-					std::cin >> grade;
-					if (std::cin)
-					{
-						student.hwGrades.push_back(grade);
-					}
-				} while (std::cin || student.hwGrades.size() == 0);
-				std::cin.clear(); std::cin.ignore();
-
-				handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
-				std::cout << std::endl;
-			}
-
-			students.push_back(student);
+			student.examGrade = ceil(1.0 * rand() / RAND_MAX * 10);
 		}
+		else
+		{
+			std::cout << "Iveskite studento pazymius (irasydami bet koki simboli be skaiciaus galite baigti rasyma)\n";
+
+			do
+			{
+				int grade = 0;
+				std::cout << "Iveskite pazymi: ";
+				std::cin >> grade;
+				if (std::cin)
+				{
+					student.hwGrades.push_back(grade);
+				}
+			} while (std::cin || student.hwGrades.size() == 0);
+			std::cin.clear(); std::cin.ignore();
+
+			handleInput("Iveskite egzamino rezultata: ", student.examGrade, true);
+			std::cout << std::endl;
+		}
+
+		students.push_back(student);
 	}
 }
 
 int getInputFromFile(vector<Student>& students, string path)
 {
+	students.clear();
+
 	std::ifstream in(path);
 
 	if (!in.is_open())
@@ -82,21 +76,35 @@ int getInputFromFile(vector<Student>& students, string path)
 
 	try
 	{
+		bool firstLine = true;
+
 		while (!in.eof())
 		{
 			Student student;
+			string line;
 
-			in >> student.name >> student.surname;
+			std::getline(in, line);
+			std::stringstream lineStream(line);
 
-			for (int i = 0; i < 5; ++i)
+			if (firstLine && line.find("ND1") != string::npos) // Skipping header
+			{
+				continue;
+			}
+				
+			firstLine = false;
+
+			lineStream >> student.name >> student.surname;
+
+			while (!lineStream.eof())
 			{
 				int grade;
-				in >> grade;
+				lineStream >> grade;
 
 				student.hwGrades.push_back(grade);
 			}
 
-			in >> student.examGrade;
+			student.examGrade = student.hwGrades.back(); // Last grade - exam
+			student.hwGrades.pop_back();
 
 			students.push_back(student);
 		}
@@ -113,29 +121,35 @@ int getInputFromFile(vector<Student>& students, string path)
 int writeStudentsToFile(const vector<Student> students, string path, bool append)
 {
 	std::ofstream out;
-	
+
 	if (append)
 		out = std::ofstream(path, std::ios_base::app);
 	else
 		out = std::ofstream(path);
-	
+		
+
 	if (!out.is_open())
 	{
 		std::cout << "Nepavyko atidaryti failo" << std::endl;
 		return 0;
 	}
 
+
 	try
 	{
+		std::stringstream stream;
+
 		for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
 		{
-			out << it_s->name << " " << it_s->surname;
+			stream << it_s->name << " " << it_s->surname;
 			for (auto it_g = it_s->hwGrades.begin(); it_g != it_s->hwGrades.end(); ++it_g)
-				out << " " << *it_g;		
-			out << " " << it_s->examGrade << std::endl;
+				stream << " " << *it_g;
+			stream << " " << it_s->examGrade << std::endl;
 		}
+
+		out << stream.str();
 	}
-	catch (std::exception& e)
+	catch (std::exception & e)
 	{
 		std::cout << "Ivyko rasymo i faila klaida" << std::endl;
 		return 0;
@@ -204,13 +218,15 @@ void printStudents(const vector<Student> students)
 		std::cout << "-";
 	std::cout << std::endl;
 
+	std::stringstream stream;
 	for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
 	{
-		std::cout
+		stream
 			<< std::setw(len_name + 2) << std::left << it_s->name
 			<< std::setw(len_surname + 2) << std::left << it_s->surname
 			<< std::setw(17) << std::left << std::fixed << std::setprecision(2) << it_s->finalAvg
 			<< std::setw(17) << std::left << std::fixed << std::setprecision(2) << it_s->finalMed
 			<< std::endl;
 	}
+	std::cout << stream.str();
 }
