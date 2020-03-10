@@ -43,3 +43,5 @@
 *.sln
 *.vcxproj*
 *.vs
+
+test*.txt
