@@ -31,17 +31,4 @@
 *.out
 *.app
 
-# Visual Studio
-*.suo
-*.VC.db
-*.ipch
-*.idb
-*.pdb
-*.tlog
-*.ilk
-*.log
-*.sln
-*.vcxproj*
-*.vs
-
-test*.txt
+*.txt
