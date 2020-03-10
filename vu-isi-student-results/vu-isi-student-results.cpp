@@ -63,7 +63,7 @@ void runTests()
 		vector<Student> studentsA, studentsB;
 		for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
 		{
-			if (abs(it_s->finalAvg - 5) < 0.000001)
+			if ()
 			{
 				
 			}
