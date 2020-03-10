@@ -27,61 +27,120 @@ bool compareByFinalMed(const Student a, const Student b)
 }
 
 void generateTestData(string path, int student_count, int grade_count, RandomGenerator* generator);
-void runTests();
+void runTests(RandomGenerator* generator);
 
 int main()
 {
 	generator = new RandomGenerator();
-	
-	vector<Student> students;	
 
-	runTests();
+	bool isTest = promptChoice("Paleisti testus? (t/n)\n");
 
-	/*bool readFromFile = promptChoice("Skaityti duomenis is failo (kursiokai.txt)? (t/n)\n");
-
-	if (readFromFile)
-		getInputFromFile(students, "kursiokai.txt");
+	if (isTest)
+	{
+		runTests(generator);
+	}
 	else
-		getInput(students, generator);
+	{
+		vector<Student> students;
 
-	computeFinals(students);
+		bool readFromFile = promptChoice("Skaityti duomenis is failo (kursiokai.txt)? (t/n)\n");
 
-	sort(students.begin(), students.end(), compareByName);
-	
-	printStudents(students);*/
+		if (readFromFile)
+			getInputFromFile(students, "kursiokai.txt");
+		else
+			getInput(students, generator);
+
+		computeFinals(students);
+
+		sort(students.begin(), students.end(), compareByName);
+
+		printStudents(students);
+	}
 
 	delete generator;
 	return 0;
 }
 
-void runTests()
+void runTests(RandomGenerator* generator)
 {
-	vector<string> testPaths = { "test^3.txt", "test^4.txt", "test^5.txt", "test^6.txt", "test^7.txt" };
+	const string testPath = "test.txt";
+	const double gradeBound = 5.0;
+	const int grade_count = 5;
+	vector<int> testSizes = { 10000000 };
 
-	for (auto it_path = testPaths.begin(); it_path != testPaths.end(); ++it_path)
+	std::chrono::steady_clock::time_point t1, t2;
+	std::chrono::duration<double> diff;
+
+	for (auto it_size = testSizes.begin(); it_size != testSizes.end(); ++it_size)
 	{ // One test
 
-		// Reading
+		// Generating
+		t1 = std::chrono::high_resolution_clock::now();
 		vector<Student> students;
-		getInputFromFile(students, *it_path);
+		if (*it_size == 10000000)
+		{
+			for (int i = 0; i < 10; ++i)
+			{
+				genRandomStudents(students, 1000000, grade_count, generator, i * 1000);
+				writeStudentsToFile(students, testPath, true);
+			}
+		}
+		else
+		{
+			genRandomStudents(students, *it_size, grade_count, generator);
+			writeStudentsToFile(students, testPath);
+		}
+		t2 = std::chrono::high_resolution_clock::now();
+		diff = t2 - t1;
+		std::cout << "Laikas " << *it_size << " studentu failo generavimui: " << diff.count() << "s\n";
+		
+		// Reading
+		t1 = std::chrono::high_resolution_clock::now();
+		getInputFromFile(students, testPath);
+		t2 = std::chrono::high_resolution_clock::now();
+		diff = t2 - t1;
+		std::cout << "Laikas " << *it_size << " studentu failo nuskaitymui: " << diff.count() << "s\n";
+
+		// Computing finals
+		computeFinals(students);
 
 		// Sorting
+		t1 = std::chrono::high_resolution_clock::now();
 		sort(students.begin(), students.end(), compareByFinalAvg);
+		t2 = std::chrono::high_resolution_clock::now();
+		diff = t2 - t1;
+		std::cout << "Laikas " << *it_size << " vektoriaus rusiavimui: " << diff.count() << "s\n";
 
 		// Seperating into two groups
+		t1 = std::chrono::high_resolution_clock::now();
 		vector<Student> studentsA, studentsB;
-		for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
-		{
-			/*if ()
-			{
-				
-			}*/
+		auto it_s = students.begin();
+		while (it_s != students.end())
+		{ // Sub copy directly?
+			if (it_s->finalAvg < gradeBound) // Not epic gamers
+				studentsA.push_back(*it_s);
+			else							 // Absolute madlads
+				studentsB.push_back(*it_s);
+
+			it_s++;
 		}
+		t2 = std::chrono::high_resolution_clock::now();
+		diff = t2 - t1;
+		std::cout << "Laikas " << *it_size << " studentu paskirstymo i atskirus vektorius: " << diff.count() << "s\n";
 		
 		// Writing to file1
+		t1 = std::chrono::high_resolution_clock::now();
+		writeStudentsToFile(studentsA, "notepicgamers.txt");
+		t2 = std::chrono::high_resolution_clock::now();
+		diff = t2 - t1;
+		std::cout << "Laikas " << *it_size << " notepicgameriu rasymo i faila: " << diff.count() << "s\n";
 
-		
 		// Writing to file2
+		t1 = std::chrono::high_resolution_clock::now();
+		writeStudentsToFile(studentsB, "absolutemadlads.txt");
+		t2 = std::chrono::high_resolution_clock::now();
+		diff = t2 - t1;
+		std::cout << "Laikas " << *it_size << " absolutemadlads rasymo i faila: " << diff.count() << "s\n\n";
 	}
 }
 

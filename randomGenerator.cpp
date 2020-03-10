@@ -1,12 +1,12 @@
 #include "randomGenerator.h"
-#include <chrono>
 
 RandomGenerator::RandomGenerator()
 {
-	this->generator = std::mt19937(static_cast<int>(std::chrono::system_clock::now().time_since_epoch().count()));
+	std::random_device rd;
+	this->generator = std::mt19937(rd());
 }
 
-RandomGenerator::RandomGenerator(unsigned seed)
+RandomGenerator::RandomGenerator(unsigned int seed)
 {
 	this->generator = std::mt19937(seed);
 }

@@ -86,10 +86,8 @@ int getInputFromFile(vector<Student>& students, string path)
 			std::getline(in, line);
 			std::stringstream lineStream(line);
 
-			if (firstLine && line.find("ND1") != string::npos) // Skipping header
-			{
+			if ((firstLine && line.find("ND1") != string::npos) || line == "") // Skipping header and empty lines
 				continue;
-			}
 				
 			firstLine = false;
 
@@ -127,13 +125,11 @@ int writeStudentsToFile(const vector<Student> students, string path, bool append
 	else
 		out = std::ofstream(path);
 		
-
 	if (!out.is_open())
 	{
 		std::cout << "Nepavyko atidaryti failo" << std::endl;
 		return 0;
 	}
-
 
 	try
 	{
