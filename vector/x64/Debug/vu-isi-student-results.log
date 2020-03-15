@@ -1,0 +1,14 @@
+﻿  studentCompute.cpp
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentCompute.cpp(9,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentCompute.cpp(10,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentCompute.cpp(18,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentCompute.cpp(20,86): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  vu-isi-student-results.cpp
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\vu-isi-student-results\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+vu-isi-student-results.obj : error LNK2019: unresolved external symbol "void __cdecl genRandomStudents<class std::vector<struct Student,class std::allocator<struct Student> > >(class std::vector<struct Student,class std::allocator<struct Student> > &,int,int,class RandomGenerator *,int)" (??$genRandomStudents@V?$vector@UStudent@@V?$allocator@UStudent@@@std@@@std@@@@YAXAEAV?$vector@UStudent@@V?$allocator@UStudent@@@std@@@std@@HHPEAVRandomGenerator@@H@Z) referenced in function "void __cdecl generateTestData(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int,class RandomGenerator *)" (?generateTestData@@YAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HHPEAVRandomGenerator@@@Z)
+C:\Users\vlada\Documents\Git\vu-isi-student-results\x64\Debug\vu-isi-student-results.exe : fatal error LNK1120: 1 unresolved externals

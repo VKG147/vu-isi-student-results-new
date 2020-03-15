@@ -1,0 +1,5 @@
+﻿  vu-isi-student-results.cpp
+C:\Users\vlada\Documents\Git\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\vu-isi-student-results\list\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  vu-isi-student-results.vcxproj -> C:\Users\vlada\Documents\Git\vu-isi-student-results\list\x64\Debug\vu-isi-student-results.exe
