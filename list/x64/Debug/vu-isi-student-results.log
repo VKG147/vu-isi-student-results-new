@@ -1,5 +1,16 @@
-﻿  vu-isi-student-results.cpp
-C:\Users\vlada\Documents\Git\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\vlada\Documents\Git\vu-isi-student-results\list\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\vlada\Documents\Git\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  vu-isi-student-results.vcxproj -> C:\Users\vlada\Documents\Git\vu-isi-student-results\list\x64\Debug\vu-isi-student-results.exe
+﻿  randomGenerator.cpp
+  studentCompute.cpp
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentCompute.cpp(9,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  studentIO.cpp
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.cpp(39,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.cpp(110,26): warning C4101: 'e': unreferenced local variable
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.cpp(148,26): warning C4101: 'e': unreferenced local variable
+  vu-isi-student-results.cpp
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  vu-isi-student-results.vcxproj -> C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\x64\Debug\vu-isi-student-results.exe
