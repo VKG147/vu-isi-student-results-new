@@ -6,6 +6,7 @@
 #include <fstream>
 #include <chrono>
 #include <iostream>
+#include <algorithm>
 
 using std::string; using std::list;
 
@@ -90,6 +91,7 @@ void runTests(RandomGenerator* generator)
 			genRandomStudents(students, *it_size, grade_count, generator);
 			writeStudentsToFile(students, testPath);
 		}
+		students.clear();
 		
 		// Reading
 		t1 = std::chrono::high_resolution_clock::now();

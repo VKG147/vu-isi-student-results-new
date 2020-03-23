@@ -6,6 +6,7 @@
 #include <fstream>
 #include <chrono>
 #include <iostream>
+#include <algorithm>
 
 using std::string; using std::deque;
 
@@ -90,6 +91,7 @@ void runTests(RandomGenerator* generator)
 			genRandomStudents(students, *it_size, grade_count, generator);
 			writeStudentsToFile(students, testPath);
 		}
+		students.clear();
 		
 		// Reading
 		t1 = std::chrono::high_resolution_clock::now();
@@ -118,7 +120,7 @@ void runTests(RandomGenerator* generator)
 				studentsA.push_back(*it_s);
 			else							 // Absolute madlads
 				studentsB.push_back(*it_s);
-
+		
 			it_s++;
 		}
 		t2 = std::chrono::high_resolution_clock::now();

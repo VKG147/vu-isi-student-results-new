@@ -6,6 +6,7 @@
 #include <fstream>
 #include <chrono>
 #include <iostream>
+#include <algorithm>
 
 using std::string; using std::vector;
 
@@ -74,9 +75,10 @@ void runTests(RandomGenerator* generator)
 	std::cout << "===Vector testavimas===\n";
 	for (auto it_size = testSizes.begin(); it_size != testSizes.end(); ++it_size)
 	{ // One test
-
+		
 		// Generating
 		vector<Student> students;
+		students.reserve(*it_size);
 		if (*it_size == 10000000)
 		{
 			for (int i = 0; i < 10; ++i)
@@ -90,7 +92,8 @@ void runTests(RandomGenerator* generator)
 			genRandomStudents(students, *it_size, grade_count, generator);
 			writeStudentsToFile(students, testPath);
 		}
-
+		students.clear();
+		
 		// Reading
 		t1 = std::chrono::high_resolution_clock::now();
 		getInputFromFile(students, testPath);

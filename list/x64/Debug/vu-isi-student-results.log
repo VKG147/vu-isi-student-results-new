@@ -13,4 +13,5 @@ C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.h(1
 C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentCompute.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\studentIO.h(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...
+  LINK : C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\x64\Debug\vu-isi-student-results.exe not found or not built by the last incremental link; performing full link
   vu-isi-student-results.vcxproj -> C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results\list\x64\Debug\vu-isi-student-results.exe
