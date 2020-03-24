@@ -1,4 +1,4 @@
-#include "randomGenerator.h";
+#include "randomGenerator.h"
 #include <deque>
 #include <string>
 

@@ -149,10 +149,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="randomGenerator.cpp" />
     <ClCompile Include="studentCompute.cpp" />
     <ClCompile Include="studentIO.cpp" />
-    <ClCompile Include="vu-isi-student-results.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="randomGenerator.h" />
