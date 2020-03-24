@@ -4,7 +4,10 @@ Its purpose is read/write student data (name, surname, grades, exam grade) from/
 > final = 0.4 * average_grade + 0.6 * exam
 
 # Installation
-Open the included .sln file using Visual Studio and run or manually compile all of the .cpp and .h files using your preferred C++ compiler.
+1. Visual Studio
+<br/>Open the included .sln file using Visual Studio and run or manually compile all of the .cpp and .h files using your preferred C++ compiler.
+2. Makefile
+<br/>Navigate to the directory using a unix terminal and run the 'make' command. Launch the program by typing './main'.
 
 # Testing
 ## PC used for testing:
