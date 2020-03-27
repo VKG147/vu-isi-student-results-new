@@ -2,13 +2,13 @@
 #include "studentCompute.h"
 #include "randomGenerator.h"
 #include <string>
-#include <deque>
+#include <list>
 #include <fstream>
 #include <chrono>
 #include <iostream>
 #include <algorithm>
 
-using std::string; using std::deque;
+using std::string; using std::list;
 
 RandomGenerator* generator;
 
@@ -42,7 +42,7 @@ int main()
 	}
 	else
 	{
-		deque<Student> students;
+		list<Student> students;
 
 		bool readFromFile = promptChoice("Skaityti duomenis is failo (kursiokai.txt)? (t/n)\n");
 
@@ -53,7 +53,7 @@ int main()
 
 		computeFinals(students);
 
-		sort(students.begin(), students.end(), compareByName);
+		students.sort(compareByName);
 
 		printStudents(students);
 	}
@@ -67,16 +67,16 @@ void runTests(RandomGenerator* generator)
 	const string testPath = "test.txt";
 	const double gradeBound = 5.0;
 	const int grade_count = 5;
-	deque<int> testSizes = { 1000, 10000, 100000, 1000000, 10000000 };
+	list<int> testSizes = { 1000, 10000, 100000, 1000000, 10000000 };
 
 	std::chrono::duration<double> diff;
 
-	std::cout << "===Deque testavimas===\n";
+	std::cout << "===List testavimas===\n";
 	for (auto it_size = testSizes.begin(); it_size != testSizes.end(); ++it_size)
 	{ // One test
-		
+
 		// Generating
-		deque<Student> students;
+		list<Student> students;
 		if (*it_size == 10000000)
 		{
 			for (int i = 0; i < 10; ++i)
@@ -104,14 +104,14 @@ void runTests(RandomGenerator* generator)
 
 		// Sorting
 		t1 = std::chrono::high_resolution_clock::now();
-		sort(students.begin(), students.end(), compareByFinalAvg);
+		students.sort(compareByFinalAvg);
 		t2 = std::chrono::high_resolution_clock::now();
 		diff = t2 - t1;
-		std::cout << "Laikas " << *it_size << " deque rusiavimui: " << diff.count() << "s\n";
+		std::cout << "Laikas " << *it_size << " list rusiavimui: " << diff.count() << "s\n";
 
 		// Seperating into two groups
 		t1 = std::chrono::high_resolution_clock::now();
-		deque<Student> studentsA, studentsB;
+		list<Student> studentsA, studentsB;
 		auto it_s = students.begin();
 		while (it_s != students.end())
 		{
@@ -119,18 +119,18 @@ void runTests(RandomGenerator* generator)
 				studentsA.push_back(*it_s);
 			else							 // Absolute madlads
 				studentsB.push_back(*it_s);
-		
+
 			it_s++;
 		}
 		t2 = std::chrono::high_resolution_clock::now();
 		diff = t2 - t1;
-		std::cout << "Laikas " << *it_size << " studentu paskirstymo i atskirus deque: " << diff.count() << "s\n\n";
+		std::cout << "Laikas " << *it_size << " studentu paskirstymo i atskirus list: " << diff.count() << "s\n\n";
 	}
 }
 
 void generateTestData(string path, int student_count, int grade_count, RandomGenerator* generator)
 {
-	deque<Student> students;
+	list<Student> students;
 	genRandomStudents(students, student_count, grade_count, generator);
 	writeStudentsToFile(students, path);
 }
