@@ -2,12 +2,14 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <vector>
+#include <deque>
 #include <fstream>
 #include <algorithm>
 #include <sstream>
 
-void getInput(vector<Student>& students, RandomGenerator* generator)
+#define INT_MAX 2147483647
+
+void getInput(deque<Student>& students, RandomGenerator* generator)
 {
 	students.clear();
 
@@ -62,7 +64,7 @@ void getInput(vector<Student>& students, RandomGenerator* generator)
 	}
 }
 
-int getInputFromFile(vector<Student>& students, string path)
+int getInputFromFile(deque<Student>& students, string path)
 {
 	students.clear();
 
@@ -116,7 +118,7 @@ int getInputFromFile(vector<Student>& students, string path)
 	return 1;
 }
 
-int writeStudentsToFile(const vector<Student> students, string path, bool append)
+int writeStudentsToFile(const deque<Student> students, string path, bool append)
 {
 	std::ofstream out;
 
@@ -144,6 +146,8 @@ int writeStudentsToFile(const vector<Student> students, string path, bool append
 		}
 
 		out << stream.str();
+		
+		stream.clear();
 	}
 	catch (std::exception & e)
 	{
@@ -193,7 +197,7 @@ bool promptChoice(string prompt_text)
 	return false;
 }
 
-void printStudents(const vector<Student> students)
+void printStudents(const deque<Student> students)
 {
 	size_t len_name = 0, len_surname = 0;
 	for (auto it_s = students.begin(); it_s != students.end(); ++it_s)

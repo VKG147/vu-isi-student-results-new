@@ -2,14 +2,12 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <deque>
+#include <list>
 #include <fstream>
 #include <algorithm>
 #include <sstream>
 
-#define INT_MAX 2147483647
-
-void getInput(deque<Student>& students, RandomGenerator* generator)
+void getInput(list<Student>& students, RandomGenerator* generator)
 {
 	students.clear();
 
@@ -64,7 +62,7 @@ void getInput(deque<Student>& students, RandomGenerator* generator)
 	}
 }
 
-int getInputFromFile(deque<Student>& students, string path)
+int getInputFromFile(list<Student>& students, string path)
 {
 	students.clear();
 
@@ -118,7 +116,7 @@ int getInputFromFile(deque<Student>& students, string path)
 	return 1;
 }
 
-int writeStudentsToFile(const deque<Student> students, string path, bool append)
+int writeStudentsToFile(const list<Student> students, string path, bool append)
 {
 	std::ofstream out;
 
@@ -146,6 +144,8 @@ int writeStudentsToFile(const deque<Student> students, string path, bool append)
 		}
 
 		out << stream.str();
+		
+		stream.clear();
 	}
 	catch (std::exception & e)
 	{
@@ -195,7 +195,7 @@ bool promptChoice(string prompt_text)
 	return false;
 }
 
-void printStudents(const deque<Student> students)
+void printStudents(const list<Student> students)
 {
 	size_t len_name = 0, len_surname = 0;
 	for (auto it_s = students.begin(); it_s != students.end(); ++it_s)
