@@ -92,5 +92,8 @@ Additionaly, added an optimised version of ```std::vector```. Different strategi
 > ```std::vector``` performed about 36% better than its unoptimised version, quite a noticeable improvement.
 
 ### Conclusion
-```std::vector``` is by far the best container for data sorting, while ```std::list``` takes the medal for less complex operations (reading and separation). 
-```std::deque``` seems like a sort of middle ground, however it is still strongly outperformed by ```std::vector``` in terms of sorting.
+- ```std::vector``` is by far the best container for data sorting, while ```std::list``` takes the medal for less complex operations (reading and separation). 
+- ```std::deque``` seems like a sort of middle ground, however it is still strongly outperformed by ```std::vector``` in terms of sorting.
+- Element deletion is way more costly for ```std::vector``` than the other two types.
+- It is definitely worth using ```std``` functions for a noticeable perfomance boost.
+
