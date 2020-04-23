@@ -113,17 +113,21 @@ void runTests(RandomGenerator* generator)
 		// Seperating into two groups
 		t1 = std::chrono::high_resolution_clock::now();
 		vector<Student> studentsA;
-		auto it_s = students.begin();
-		while (it_s != students.end())
-		{
+		auto it_s = students.end() - 1;
+		while (true) {
 			if (it_s->finalAvg < gradeBound) // Not epic gamers
 			{
 				studentsA.push_back(*it_s);
 				it_s = students.erase(it_s);
 			}
-			else
-				it_s++;
+
+			if (it_s == students.begin()) {
+				break;
+			}
+
+			it_s--;
 		}
+
 		t2 = std::chrono::high_resolution_clock::now();
 		diff = t2 - t1;
 		std::cout << "Laikas " << *it_size << " studentu paskirstymo i atskirus vector: " << diff.count() << "s\n\n";
