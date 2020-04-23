@@ -19,12 +19,12 @@ bool compareByName(const Student a, const Student b)
 
 bool compareByFinalAvg(const Student a, const Student b)
 {
-	return (a.finalAvg < b.finalAvg);
+	return (a.finalAvg > b.finalAvg);
 }
 
 bool compareByFinalMed(const Student a, const Student b)
 {
-	return (a.finalMed < b.finalMed);
+	return (a.finalMed > b.finalMed);
 }
 
 void generateTestData(string path, int student_count, int grade_count, RandomGenerator* generator);
@@ -114,20 +114,15 @@ void runTests(RandomGenerator* generator)
 		t1 = std::chrono::high_resolution_clock::now();
 		vector<Student> studentsA;
 		auto it_s = students.end() - 1;
-		while (true) {
-			if (it_s->finalAvg < gradeBound) // Not epic gamers
-			{
-				studentsA.push_back(*it_s);
-				it_s = students.erase(it_s);
-			}
+		while (it_s->finalAvg >= gradeBound) {
+			studentsA.push_back(*it_s);
+			it_s--;
+			students.pop_back();
 
 			if (it_s == students.begin()) {
 				break;
 			}
-
-			it_s--;
 		}
-
 		t2 = std::chrono::high_resolution_clock::now();
 		diff = t2 - t1;
 		std::cout << "Laikas " << *it_size << " studentu paskirstymo i atskirus vector: " << diff.count() << "s\n\n";
