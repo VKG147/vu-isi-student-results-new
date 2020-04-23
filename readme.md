@@ -51,20 +51,20 @@ All data containers cleared whenever their data becomes obsolete. Space is now r
 
 ## [v1.0](https://github.com/VKG147/vu-isi-student-results/releases/tag/v1.0)
 Added second data splitting strategy for each container. Instead of two new containers, only one is used while procedurely erasing elements from the initial container.<br/>
-<br/>```std::vector```:
-<br/>![Partial tests with std::vector](images/vector_2.png)
+<br/>File reading:
+<br/>![File reading](images/1vs2_reading.png)
 
-<br/>```std::deque```:
-<br/>![Partial tests with std::deque](images/deque_2.png)
+<br/>Container sorting:
+<br/>![Container sorting](images/1vs2_sorting.png)
 
-<br/>```std::list```:
-<br/>![Partial tests with std::list](images/list_2.png)
+<br/>Data separation:
+<br/>![Data separation](images/1vs2_separation.png)
 
 Additionaly, added an optimised version of ```std::vector```. Different strategies for optimisation were considered. Ultimately,  ```std::remove_copy_if()``` was chosen. Ran a few tests to determine the best one:<br/>
 <br/>![Optimization strategies](images/vector_o_contest.png)
 
-<br/>Tests with optimised ```std::vector``` implementation:
-<br/>![Partial tests with optimised std::vector](images/vector_o.png)
+<br/>Comparison with optimised ```std::vector``` implementation:
+<br/>![Optimized std::vector comparison](images/vector_o_comparison.png)
 
 ## Test insights
 ### Data reading
