@@ -114,7 +114,7 @@ void runTests(RandomGenerator* generator)
 		t1 = std::chrono::high_resolution_clock::now();
 		vector<Student> studentsA;
 		auto it_s = students.end() - 1;
-		while (it_s->finalAvg >= gradeBound) {
+		while (it_s->finalAvg < gradeBound) {
 			studentsA.push_back(*it_s);
 			it_s--;
 			students.pop_back();
