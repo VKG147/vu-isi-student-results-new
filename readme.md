@@ -89,7 +89,7 @@ Additionaly, added an optimised version of ```std::vector```. Different strategi
 3. ```std::vector```
 > ```std::list``` and ```std::deque``` received a noticable perfomance, while ```std::vector``` got so slow that it was not worth running the tests for longer.
 #### Optimised ```std::vector```
-> ```std::vector``` performed about 36% better than its unoptimised version, quite a noticeable improvement.
+> ```std::vector``` performed about 36% better than its No. 1 implementation, strategy No. 2 performed even better, 56.7% faster than strategy No. 1.
 
 ### Conclusion
 - ```std::vector``` is by far the best container for data sorting, while ```std::list``` takes the medal for less complex operations (reading and separation). 
