@@ -67,7 +67,7 @@ void runTests(RandomGenerator* generator)
 	const string testPath = "test.txt";
 	const double gradeBound = 5.0;
 	const int grade_count = 5;
-	vector<int> testSizes = { 1000, 10000, 100000, 1000000, 10000000 };
+	vector<int> testSizes = { 100000, 1000000 };
 
 	std::chrono::duration<double> diff;
 
