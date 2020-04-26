@@ -81,7 +81,6 @@ int getInputFromFile(vector<Student>& students, string path)
 
 		while (!in.eof())
 		{
-			Student student;
 			string line;
 
 			std::getline(in, line);
@@ -92,8 +91,24 @@ int getInputFromFile(vector<Student>& students, string path)
 				
 			firstLine = false;
 
-			student.readStudent(lineStream);
-			lineStream.clear();
+			string name, surname;
+			int examGrade;
+			vector<int> hwGrades;
+
+			lineStream >> name >> surname;
+
+			while (!lineStream.eof())
+			{
+				int grade;
+				lineStream >> grade;
+
+				hwGrades.push_back(grade);
+			}
+
+			examGrade = hwGrades.back(); // Last grade - exam
+			hwGrades.pop_back();
+
+			Student student(name, surname, hwGrades, examGrade);
 
 			students.push_back(student);
 		}
