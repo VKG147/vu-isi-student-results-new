@@ -66,34 +66,50 @@ Additionaly, added an optimised version of ```std::vector```. Different strategi
 <br/>Comparison with optimised ```std::vector``` implementation:
 <br/>![Optimized std::vector comparison](images/vector_o_comparison.png)
 
-## Test insights
-### Data reading
+### Test insights
+#### Data reading
 1. ```std::list```
 2. ```std::vector```
 3. ```std::deque```
 > Overall ```std::list``` performed the best and ```std::deque``` the worst, while ```std::vector``` stands right in the middle.
-### Data sorting
+#### Data sorting
 1. ```std::vector```
 2. ```std::deque```
 3. ```std::list```
 > ```std::vector``` completely outperformed the other two containers by a huge margin. ```std::list``` takes the shameful last place.
-### Data separation (into two containers)
-#### Strategy No. 1
+#### Data separation (into two containers)
+##### Strategy No. 1
 1. ```std::list```
 2. ```std::deque```
 3. ```std::vector```
 > This operation didn't take that much time compared to sorting, but ```std::list``` was slightly better than the other two containers.
-#### Strategy No. 2
+##### Strategy No. 2
 1. ```std::list```
 2. ```std::deque```
 3. ```std::vector```
 > ```std::list``` and ```std::deque``` received a noticable perfomance, while ```std::vector``` got so slow that it was not worth running the tests for longer.
-#### Optimised ```std::vector```
+##### Optimised ```std::vector```
 > ```std::vector``` performed about 36% better than its No. 1 implementation, strategy No. 2 performed even better, 56.7% faster than strategy No. 1.
 
-### Conclusion
+#### Conclusion
 - ```std::vector``` is by far the best container for data sorting, while ```std::list``` takes the medal for less complex operations (reading and separation). 
 - ```std::deque``` seems like a sort of middle ground, however it is still strongly outperformed by ```std::vector``` in terms of sorting.
 - Element deletion is way more costly for ```std::vector``` than the other two types.
 - It is definitely worth using ```std``` functions for a noticeable perfomance boost.
 
+## [v1.1](https://github.com/VKG147/vu-isi-student-results-new/releases/tag/v1.1)
+Added Student class implementation (using ```std::vector```). Compared class and struct perfomance difference with data sizes of 10^5 and 10^6.<br/>
+Perfomance comparison:<br/>
+<br/>![class vs struct comparison](images/class_vs_struct.png)<br/>
+
+Added new tests with same data sizes using various optimization flags (/O1, /O2 and /Ox).<br/><br/>
+Struct optimization comparison:<br/>
+<br/>![struct optimization comparison](images/struct_oflags.png)<br/>
+Class optimization comparison:<br/>
+<br/>![class optimization comparison](images/class_oflags.png)<br/>
+
+### Insights
+## ```class``` vs ```struct```
+Negligible differences in all areas besides sorting. Sorting using classes is significantly faster than structs (almost 10 times)
+## Optimization flags
+Both class and struct implementations saw a significant perfomance boost using optimization flags. /O2 and /OX brought the largest decrease in runtime compared to /O1.
