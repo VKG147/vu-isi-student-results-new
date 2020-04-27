@@ -109,7 +109,7 @@ Class optimization comparison:<br/>
 <br/>![class optimization comparison](images/class_oflags.png)<br/>
 
 ### Insights
-## ```class``` vs ```struct```
+#### ```class``` vs ```struct```
 Negligible differences in all areas besides sorting. Sorting using classes is significantly faster than structs (almost 10 times)
-## Optimization flags
+#### Optimization flags
 Both class and struct implementations saw a significant perfomance boost using optimization flags. /O2 and /OX brought the largest decrease in runtime compared to /O1.
