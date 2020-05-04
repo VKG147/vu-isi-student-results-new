@@ -22,6 +22,15 @@ public:
 	Student(const string& name, const string& surname, const vector<int>& hwGrades, const int& examGrade) :
 		name_(name), surname_(surname), hwGrades_(hwGrades), examGrade_(examGrade) { }
 	Student(std::istream& is);
+	~Student();
+
+	Student(const Student&);
+	Student& operator=(const Student&);
+
+	operator bool() const;
+	double operator+(const Student&);
+	double operator-(const Student&);
+	double operator*(const Student&);
 
 	inline string name() const { return name_; }
 	inline string surname() const { return surname_; }
