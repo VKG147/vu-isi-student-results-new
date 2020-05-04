@@ -113,3 +113,6 @@ Class optimization comparison:<br/>
 Negligible differences in all areas besides sorting. Sorting using classes is significantly faster than structs (almost 10 times)
 #### Optimization flags
 Both class and struct implementations saw a significant perfomance boost using optimization flags. /O2 and /OX brought the largest decrease in runtime compared to /O1.
+
+## [v1.2](https://github.com/VKG147/vu-isi-student-results-new/releases/tag/v1.2)
+Added copy constructor, copy assignment and other potentially useful operators.
