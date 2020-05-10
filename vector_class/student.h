@@ -4,13 +4,14 @@
 #include <string>
 #include <algorithm>
 #include "average.h"
+#include "person.h"
 
 #ifndef STUDENT_H
 #define STUDENT_H
 
 using std::string; using std::vector;
 
-class Student {
+class Student : public Person {
 private:
 	string name_;
 	string surname_;

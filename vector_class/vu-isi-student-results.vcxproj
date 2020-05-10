@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="average.h" />
+    <ClInclude Include="person.h" />
     <ClInclude Include="randomGenerator.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="studentCompute.h" />
