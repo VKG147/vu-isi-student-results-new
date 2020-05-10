@@ -27,6 +27,7 @@ public:
 
 	Student(const Student&);
 	Student& operator=(const Student&);
+	Student& operator=(Student&&) = default;
 
 	operator bool() const;
 	double operator+(const Student&);
