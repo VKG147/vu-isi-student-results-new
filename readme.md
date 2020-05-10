@@ -116,3 +116,6 @@ Both class and struct implementations saw a significant perfomance boost using o
 
 ## [v1.2](https://github.com/VKG147/vu-isi-student-results-new/releases/tag/v1.2)
 Added copy constructor, copy assignment and other potentially useful operators.
+
+## [v1.5](https://github.com/VKG147/vu-isi-student-results-new/releases/tag/v1.5)
+```Student``` class is now derived from the abstract ```Person``` class.
