@@ -1,0 +1,87 @@
+\hypertarget{struct_student}{}\doxysection{Student Struct Reference}
+\label{struct_student}\index{Student@{Student}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_student_a8b07a4bb0c949c7acd4db46a87501802}\label{struct_student_a8b07a4bb0c949c7acd4db46a87501802}} 
+{\bfseries Student} (const string \&name, const string \&surname, const vector$<$ int $>$ \&hw\+Grades, const int \&exam\+Grade)
+\item 
+\mbox{\Hypertarget{struct_student_a63c032998418356143a76538b65acc02}\label{struct_student_a63c032998418356143a76538b65acc02}} 
+{\bfseries Student} (std\+::istream \&is)
+\item 
+\mbox{\Hypertarget{struct_student_a4bc8fcbadabef3f7b81c40536f3713b1}\label{struct_student_a4bc8fcbadabef3f7b81c40536f3713b1}} 
+{\bfseries Student} (const \mbox{\hyperlink{struct_student}{Student}} \&)
+\item 
+\mbox{\Hypertarget{struct_student_aa6060eb7193de5bf6a4ae8e4a52bed45}\label{struct_student_aa6060eb7193de5bf6a4ae8e4a52bed45}} 
+\mbox{\hyperlink{struct_student}{Student}} \& {\bfseries operator=} (const \mbox{\hyperlink{struct_student}{Student}} \&)
+\item 
+\mbox{\Hypertarget{struct_student_af64b09735ce03bf9c611dea53c3827f7}\label{struct_student_af64b09735ce03bf9c611dea53c3827f7}} 
+\mbox{\hyperlink{struct_student}{Student}} \& {\bfseries operator=} (\mbox{\hyperlink{struct_student}{Student}} \&\&)=default
+\item 
+\mbox{\Hypertarget{struct_student_aa57490bd2c5a9ef2b0997e93c5dccc68}\label{struct_student_aa57490bd2c5a9ef2b0997e93c5dccc68}} 
+{\bfseries operator bool} () const
+\item 
+\mbox{\Hypertarget{struct_student_acaa46c439e88b90a70d24d6157af922e}\label{struct_student_acaa46c439e88b90a70d24d6157af922e}} 
+double {\bfseries operator+} (const \mbox{\hyperlink{struct_student}{Student}} \&)
+\item 
+\mbox{\Hypertarget{struct_student_af9933adc25b4329e256678c508ef3ed9}\label{struct_student_af9933adc25b4329e256678c508ef3ed9}} 
+double {\bfseries operator-\/} (const \mbox{\hyperlink{struct_student}{Student}} \&)
+\item 
+\mbox{\Hypertarget{struct_student_a8d8be430bca049e51fb9834454fb2790}\label{struct_student_a8d8be430bca049e51fb9834454fb2790}} 
+double {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_student}{Student}} \&)
+\item 
+\mbox{\Hypertarget{struct_student_a3ad6294167918c7be663877307f56cbc}\label{struct_student_a3ad6294167918c7be663877307f56cbc}} 
+string {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{struct_student_aeebe934e3806f0c258246e8f95f9ee2b}\label{struct_student_aeebe934e3806f0c258246e8f95f9ee2b}} 
+string {\bfseries surname} () const
+\item 
+\mbox{\Hypertarget{struct_student_a200192a13f64a6d7f6d921541ce3c2c4}\label{struct_student_a200192a13f64a6d7f6d921541ce3c2c4}} 
+vector$<$ int $>$ {\bfseries hw\+Grades} () const
+\item 
+\mbox{\Hypertarget{struct_student_a6275bf401dfedc1d7137324bfe6986b2}\label{struct_student_a6275bf401dfedc1d7137324bfe6986b2}} 
+int {\bfseries exam\+Grade} () const
+\item 
+\mbox{\Hypertarget{struct_student_a078ef4203402ed46f96c4fc51644f34c}\label{struct_student_a078ef4203402ed46f96c4fc51644f34c}} 
+double {\bfseries final\+Grade} () const
+\item 
+\mbox{\Hypertarget{struct_student_a85b821d463edf6ee2c66dadc4209de4a}\label{struct_student_a85b821d463edf6ee2c66dadc4209de4a}} 
+void {\bfseries compute\+Final\+Grade} (double($\ast$get\+Average)(vector$<$ int $>$)=get\+Mean)
+\item 
+\mbox{\Hypertarget{struct_student_a3e179655f2a0c8d3587c1f0dc572de14}\label{struct_student_a3e179655f2a0c8d3587c1f0dc572de14}} 
+std\+::istream \& {\bfseries read\+Student} (std\+::istream \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_student_a671f6b115a158653a0f0bece34ea0667}\label{struct_student_a671f6b115a158653a0f0bece34ea0667}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{struct_student_a64eb0c4fb3be45c4f6ea9091bbfa4d69}\label{struct_student_a64eb0c4fb3be45c4f6ea9091bbfa4d69}} 
+string {\bfseries surname}
+\item 
+\mbox{\Hypertarget{struct_student_a0ca249f5489dd06e063bdcaa8b169dc8}\label{struct_student_a0ca249f5489dd06e063bdcaa8b169dc8}} 
+deque$<$ int $>$ {\bfseries hw\+Grades}
+\item 
+\mbox{\Hypertarget{struct_student_a0042c819da6458bb8956852bafce4664}\label{struct_student_a0042c819da6458bb8956852bafce4664}} 
+int {\bfseries exam\+Grade}
+\item 
+\mbox{\Hypertarget{struct_student_a66c13e39d817861b213b3bbf0fe733d7}\label{struct_student_a66c13e39d817861b213b3bbf0fe733d7}} 
+float {\bfseries final\+Avg}
+\item 
+\mbox{\Hypertarget{struct_student_a8edb4d36178557836ea229cbe224de65}\label{struct_student_a8edb4d36178557836ea229cbe224de65}} 
+float {\bfseries final\+Med}
+\item 
+\mbox{\Hypertarget{struct_student_a54e3a7f58879095c3f0c73cdc927710d}\label{struct_student_a54e3a7f58879095c3f0c73cdc927710d}} 
+list$<$ int $>$ {\bfseries hw\+Grades}
+\item 
+\mbox{\Hypertarget{struct_student_ad1a3a19fe91b31c696e6dcefa7779ee9}\label{struct_student_ad1a3a19fe91b31c696e6dcefa7779ee9}} 
+vector$<$ int $>$ {\bfseries hw\+Grades}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+strat1/deque/student\+I\+O.\+h\item 
+vector\+\_\+class/student.\+h\item 
+vector\+\_\+class/student.\+cpp\end{DoxyCompactItemize}
