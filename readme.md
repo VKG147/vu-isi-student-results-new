@@ -119,3 +119,7 @@ Added copy constructor, copy assignment and other potentially useful operators.
 
 ## [v1.5](https://github.com/VKG147/vu-isi-student-results-new/releases/tag/v1.5)
 ```Student``` class is now derived from the abstract ```Person``` class.
+
+## [v2.0](https://github.com/VKG147/vu-isi-student-results-new/releases/tag/v1.5)
+Added unit tests for ```vector_class``` ([Google test](https://github.com/google/googletest)).
+Tested functions from ```average.h``` (```getMean```, ```getMedian```) and ```student.h``` (```compareByName```).
