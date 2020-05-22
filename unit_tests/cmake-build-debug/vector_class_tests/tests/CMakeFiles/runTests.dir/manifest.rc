@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/tests/CMakeFiles/runTests.dir/embed.manifest"
