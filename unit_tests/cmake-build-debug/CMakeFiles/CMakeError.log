@@ -1,14 +1,14 @@
 Determining if the include file pthread.h exists failed with the following output:
-Change Dir: C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_678b2\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_678b2.dir\build.make /nologo -L                  CMakeFiles\cmTC_678b2.dir\build
-Building C object CMakeFiles/cmTC_678b2.dir/CheckIncludeFile.c.obj
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1424~1.283\bin\Hostx86\x86\cl.exe @C:\Users\vlada\AppData\Local\Temp\nm5FE0.tmp
+Run Build Command(s):nmake /nologo cmTC_38737\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_38737.dir\build.make /nologo -L                  CMakeFiles\cmTC_38737.dir\build
+Building C object CMakeFiles/cmTC_38737.dir/CheckIncludeFile.c.obj
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe @C:\Users\vlada\AppData\Local\Temp\nm9DC1.tmp
 CheckIncludeFile.c
-C:\Users\vlada\Documents\Git\VU ISI\OP\vu-isi-student-results-new\unit_tests\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory
-NMAKE : fatal error U1077: 'C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1424~1.283\bin\Hostx86\x86\cl.exe' : return code '0x2'
+C:\Users\vlada\Documents\Git\vu-isi-student-results-new\unit_tests\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory
+NMAKE : fatal error U1077: 'C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx86\x86\cl.exe' : return code '0x2'
 Stop.
-NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\bin\HostX86\x86\nmake.exe"' : return code '0x2'
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\bin\HostX86\x86\nmake.exe"' : return code '0x2'
 Stop.
 
 

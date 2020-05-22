@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/gtest-1.7.0
+# Install script for directory: C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/gtest-1.7.0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Project")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/unit_tests")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

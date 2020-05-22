@@ -1,21 +1,23 @@
 cmake_minimum_required(VERSION 3.15)
 project(vector_class)
 
-set(CMAKE_CXX_STANDARD 14)
-
-include_directories(.)
-
-add_executable(vector_class
-        average.cpp
+set(HEADER_FILES
         average.h
-        main.cpp
-        person.cpp
         person.h
-        randomGenerator.cpp
         randomGenerator.h
-        student.cpp
         student.h
-        studentCompute.cpp
         studentCompute.h
+        studentIO.h
+        )
+
+set(SOURCE_FILES
+        average.cpp
+        ../main.cpp
+        person.cpp
+        randomGenerator.cpp
+        student.cpp
+        studentCompute.cpp
         studentIO.cpp
-        studentIO.h ../vector_class_tests/main.cpp)
+        )
+
+add_library(vector_class STATIC ${SOURCE_FILES} ${HEADER_FILES})

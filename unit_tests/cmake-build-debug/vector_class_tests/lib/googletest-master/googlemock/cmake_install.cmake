@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/googletest-master/googlemock
+# Install script for directory: C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/googletest-master/googlemock
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Project")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/unit_tests")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,36 +33,36 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/googletest-master/googlemock/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/googletest-master/googlemock/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/lib/gmockd.lib")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/lib/gmockd.lib")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/lib/gmock_maind.lib")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/lib/gmock_maind.lib")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE OPTIONAL FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/bin/${CMAKE_INSTALL_CONFIG_NAME}/gmockd.pdb")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE OPTIONAL FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/bin/${CMAKE_INSTALL_CONFIG_NAME}/gmockd.pdb")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE OPTIONAL FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/bin/${CMAKE_INSTALL_CONFIG_NAME}/gmock_maind.pdb")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE OPTIONAL FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/bin/${CMAKE_INSTALL_CONFIG_NAME}/gmock_maind.pdb")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/generated/gmock.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/generated/gmock.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/generated/gmock_main.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/generated/gmock_main.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/cmake_install.cmake")
+  include("C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/cmake_install.cmake")
 
 endif()
 

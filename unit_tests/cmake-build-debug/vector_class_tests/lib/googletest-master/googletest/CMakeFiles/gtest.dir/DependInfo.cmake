@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/googletest-master/googletest/src/gtest-all.cc" "C:/Users/vlada/Documents/Git/VU ISI/OP/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
+  "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/vector_class_tests/lib/googletest-master/googletest/src/gtest-all.cc" "C:/Users/vlada/Documents/Git/vu-isi-student-results-new/unit_tests/cmake-build-debug/vector_class_tests/lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../vector_class"
   "../vector_class_tests/lib/googletest-master/googletest/include"
   "../vector_class_tests/lib/googletest-master/googletest"
   )
